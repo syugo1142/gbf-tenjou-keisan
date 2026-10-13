@@ -10,8 +10,9 @@
 - 昼／夜の配色を切り替えられる（既定は夜）
 
 ## 使い方
-- GitHub Pages で公開しているページを開く
-- または、このリポジトリをダウンロードして（Code → Download ZIP、または `git clone`）、`index.html` をブラウザで開く
+https://syugo1142.github.io/tenjou-keisan/ を開くだけで使えます。
+
+手元で使う場合は、このリポジトリをダウンロードして（Code → Download ZIP、または `git clone`）、`index.html` をブラウザで開いてください。
 
 入力した数はブラウザのlocalStorageに保存され、サーバーには送られません。
 
