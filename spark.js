@@ -1,7 +1,6 @@
 // グラブル天井計算（300連）。素材トラッカーとは独立したページで、このフォルダだけで動く
 (() => {
   const STORAGE_KEY = 'gbf-spark-v1';
-  const THEME_KEY = 'gbf-spark-theme';
   const CEILING = 300;           // 天井に必要な連数
   const CRYSTALS_PER_DRAW = 300; // 単発1回あたりの宝晶石
   const FIELDS = ['crystals', 'singles', 'tens', 'sparks'];
@@ -41,21 +40,6 @@
   function save(state) {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
   }
-
-  // 昼／夜の切り替え（既定は夜。選んだほうをこの閲覧者のブラウザに覚えておく）
-  const themeToggle = document.getElementById('theme-toggle');
-  function applyTheme(theme) {
-    if (theme === 'light') document.documentElement.dataset.theme = 'light';
-    else delete document.documentElement.dataset.theme;
-    themeToggle.textContent = theme === 'light' ? '🌙 夜にする' : '☀ 昼にする';
-    themeToggle.setAttribute('aria-label', theme === 'light' ? '夜の配色に切り替える' : '昼の配色に切り替える');
-  }
-  applyTheme(document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');
-  themeToggle.addEventListener('click', () => {
-    const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-    applyTheme(next);
-    try { localStorage.setItem(THEME_KEY, next); } catch {}
-  });
 
   // 大きな数字のタイル1枚分
   function statTile(label, value, unit, sub, extraClass = '') {
