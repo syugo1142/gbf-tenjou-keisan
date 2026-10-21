@@ -25,7 +25,7 @@ spark.js   # 計算と表示、保存
 ```
 
 ## 関連
-- 素材集めの管理ツール: [tracker](https://github.com/syugo1142/tracker)
+- [グラブル便利ツール](https://syugo1142.github.io/gbf-tracker/)（[リポジトリ](https://github.com/syugo1142/gbf-tracker)）: 素材集めの管理ツール
 
 ## 注意
 - 非公式のファンメイドツールです。株式会社Cygamesとは関係ありません。
