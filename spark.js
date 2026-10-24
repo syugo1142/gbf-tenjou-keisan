@@ -3,7 +3,9 @@
   const STORAGE_KEY = 'gbf-spark-v1';
   const CEILING = 300;           // 天井に必要な連数
   const CRYSTALS_PER_DRAW = 300; // 単発1回あたりの宝晶石
-  const FIELDS = ['crystals', 'singles', 'tens', 'sparks'];
+  const COINS_PER_DRAW = 300;    // 単発1回あたりのモバコイン（1枚＝宝晶石1個）
+  const YEN_PER_100_COINS = 105; // モバコインは100枚＝105円の単位で買う
+  const FIELDS = ['crystals', 'singles', 'tens', 'coins', 'sparks'];
 
   // DOM 生成ヘルパー。文字列は textContent で入れるので XSS の心配がない
   function el(tag, props = {}, children = []) {
@@ -52,12 +54,17 @@
 
   function render(s) {
     const box = document.getElementById('spark-result');
-    const now = Math.floor(s.crystals / CRYSTALS_PER_DRAW) + s.singles + s.tens * 10 + s.sparks;
+    // 宝晶石とモバコインは1回のガチャで混ぜて払えないので、端数は別々に切り捨てる
+    const now = Math.floor(s.crystals / CRYSTALS_PER_DRAW) + Math.floor(s.coins / COINS_PER_DRAW)
+      + s.singles + s.tens * 10 + s.sparks;
     const sparkCount = Math.floor(now / CEILING); // 天井何回分か
     const progress = now % CEILING;               // 次の天井に向けて貯まっている連数
     const remaining = CEILING - progress;
     // 端数の宝晶石も使って、あと何個あれば次の天井か
     const needCrystals = remaining * CRYSTALS_PER_DRAW - (s.crystals % CRYSTALS_PER_DRAW);
+    // モバコインで買い足す場合。端数のコインも使い、100枚単位に切り上げて円にする
+    const needCoins = remaining * COINS_PER_DRAW - (s.coins % COINS_PER_DRAW);
+    const needYen = Math.ceil(needCoins / 100) * YEN_PER_100_COINS;
     // ガチャチケットの宝晶石換算（単発1枚=300個、10連1枚=3000個）
     const singleValue = s.singles * CRYSTALS_PER_DRAW;
     const tenValue = s.tens * CRYSTALS_PER_DRAW * 10;
@@ -68,7 +75,8 @@
         statTile('いま引ける', formatNum(now), '連', `うちガチャPt ${formatNum(s.sparks)}`),
         statTile('天井', formatNum(sparkCount), '回分',
           sparkCount > 0 && progress > 0 ? `＋${formatNum(progress)} 連` : '', sparkCount > 0 ? 'reached' : ''),
-        statTile('宝晶石＋チケット', formatNum(s.crystals + ticketValue), '個', `うちチケット ${formatNum(ticketValue)} 個`),
+        statTile('宝晶石換算', formatNum(s.crystals + ticketValue + s.coins), '個',
+          `うちチケット ${formatNum(ticketValue)} 個・モバコイン ${formatNum(s.coins)} 枚`),
       ]),
       el('div', { class: 'progress' }, [
         el('div', { class: 'progress-head' }, [
@@ -80,10 +88,14 @@
           el('span', { text: `${formatNum(progress)} / ${CEILING}` }),
           el('span', { text: `宝晶石なら ${formatNum(needCrystals)} 個` }),
         ]),
+        el('div', { class: 'progress-foot' }, [
+          el('span'),
+          el('span', { text: `モバコインなら ${formatNum(needCoins)} 枚（約 ${formatNum(needYen)} 円）` }),
+        ]),
       ]),
       el('p', {
         class: 'hint',
-        text: `チケット内訳: 単発 ${formatNum(s.singles)} 枚＝${formatNum(singleValue)} 個、10連 ${formatNum(s.tens)} 枚＝${formatNum(tenValue)} 個。宝晶石300個=1連、10連チケット=10連で計算しています。`,
+        text: `チケット内訳: 単発 ${formatNum(s.singles)} 枚＝${formatNum(singleValue)} 個、10連 ${formatNum(s.tens)} 枚＝${formatNum(tenValue)} 個。宝晶石300個=1連、モバコイン300枚=1連（1枚=宝晶石1個、100枚=105円）、10連チケット=10連で計算しています。`,
       }),
     );
   }
