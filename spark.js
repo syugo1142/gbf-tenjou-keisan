@@ -72,7 +72,7 @@
 
     box.replaceChildren(
       el('div', { class: 'stats' }, [
-        statTile('ガチャ回数', formatNum(now), '連', `うちガチャPt ${formatNum(s.sparks)}`),
+        statTile('ガチャ回数', formatNum(now), '連', `うち蒼光の輝き ${formatNum(s.sparks)}`),
         statTile('天井', formatNum(sparkCount), '回分',
           sparkCount > 0 && progress > 0 ? `＋${formatNum(progress)} 連` : '', sparkCount > 0 ? 'reached' : ''),
         statTile('宝晶石換算', formatNum(s.crystals + ticketValue + s.coins), '個',
