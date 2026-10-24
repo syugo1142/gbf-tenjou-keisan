@@ -11,6 +11,12 @@
 - 返答・コードのコメント・コミットメッセージは日本語
 - 案内するコマンドのパスは `\`（¥）ではなく `/` で書く
 
+## 会話の始まり（自動チェック）
+- `.claude/settings.json` の SessionStart フックで、会話を始めると `.claude/hooks/session-start.sh` が自動で動く。`git fetch`（GitHub の変更を確認するだけ。手元のファイルは変わらない）、`git status -sb`、`git log --oneline -10` の結果が会話の最初に渡される
+- GitHub に取り込んでいない変更があると表示されたら、作業の前に本人に `git pull` を頼む（Claude は pull しない）。push していない commit があるときも知らせる
+- 2台のPCで作業している。どちらのPCで何をしたかは、この自動チェックの `git log` で把握する
+- グラブルの素材名や用語の知識は、姉妹リポジトリ gbf-tracker の `docs/gbf-knowledge.md` にある
+
 ## 方針
 - `index.html`・`style.css`・`spark.js` の3ファイルだけで完結する。gbf-tracker とはファイルもデータも共有しない（本人の希望で完全に切り分けた）
 - 素の JavaScript、ビルドなし。`index.html` をファイルとして直接開いても動く
