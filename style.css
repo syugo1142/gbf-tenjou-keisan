@@ -21,7 +21,8 @@
 
 body {
   margin: 0;
-  font-family: system-ui, "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+  /* Windows の游ゴシックは線が細く薄く見えるので、メイリオを先にする（Mac などはヒラギノ） */
+  font-family: "Meiryo", "Hiragino Sans", system-ui, sans-serif;
   color: var(--text);
   line-height: 1.6;
   background-color: var(--bg);
