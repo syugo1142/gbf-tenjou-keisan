@@ -86,16 +86,16 @@
         el('div', { class: 'bar' }, el('div', { class: 'bar-fill', style: `width:${(progress / CEILING) * 100}%` })),
         el('div', { class: 'progress-foot' }, [
           el('span', { text: `${formatNum(progress)} / ${CEILING}` }),
-          el('span', { text: `宝晶石なら ${formatNum(needCrystals)} 個` }),
+          el('span', { text: `宝晶石 ${formatNum(needCrystals)} 個` }),
         ]),
         el('div', { class: 'progress-foot' }, [
           el('span'),
-          el('span', { text: `モバコインなら ${formatNum(needCoins)} 枚（約 ${formatNum(needYen)} 円）` }),
+          el('span', { text: `モバコイン ${formatNum(needCoins)} 枚（約 ${formatNum(needYen)} 円）` }),
         ]),
       ]),
       el('p', {
         class: 'hint',
-        text: `チケット内訳: 単発 ${formatNum(s.singles)} 枚＝${formatNum(singleValue)} 個、10連 ${formatNum(s.tens)} 枚＝${formatNum(tenValue)} 個。宝晶石300個=1連、モバコイン300枚=1連（1枚=宝晶石1個、100枚=105円）、10連チケット=10連で計算しています。`,
+        text: `単発チケット1枚=宝晶石300個、10連チケット1枚=3,000個。宝晶石300個=1連、モバコイン300枚=1連（1枚=宝晶石1個、100枚=105円）で計算しています。`,
       }),
     );
   }
