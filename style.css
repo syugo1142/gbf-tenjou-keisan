@@ -106,7 +106,8 @@ input:focus { outline: 2px solid var(--accent); outline-offset: -1px; background
 .progress { margin-top: 16px; }
 .progress-head, .progress-foot { display: flex; justify-content: space-between; gap: 8px; }
 .progress-head strong { font-size: 1.1rem; }
-.progress-foot { font-size: .9rem; color: var(--muted); }
+/* あと何個・何円は大事な数字なので、補足の灰色ではなく本文の色にする */
+.progress-foot { font-size: .95rem; color: var(--text); }
 
 .bar {
   height: 14px;
