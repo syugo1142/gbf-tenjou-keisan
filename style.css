@@ -11,9 +11,8 @@
   --border: #b4c6dc;
   --field: #f7fafe;
   --accent: #2b7bd0;
-  --gold: #d1a131;
+  --gold: #d1a131;       /* 金色はゲージにだけ使う */
   --gold-light: #f2d27a;
-  --gold-text: #8a6410; /* 金色の文字用。飾りの --gold より濃くして読みやすくする */
 }
 
 * { box-sizing: border-box; }
@@ -59,17 +58,7 @@ main { max-width: 960px; margin: 0 auto; padding: 20px 16px 24px; }
   margin-bottom: 18px;
   box-shadow: var(--card-shadow);
 }
-/* 上辺の金のライン */
-.card::before {
-  content: '';
-  position: absolute;
-  left: 18px; right: 18px; top: -1px;
-  height: 3px;
-  border-radius: 0 0 3px 3px;
-  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
-}
 .card h2 { margin: 0 0 14px; font-size: 1.1rem; }
-.card h2::before { content: '◆ '; color: var(--gold); font-size: .85em; }
 
 /* ---------- 入力 ---------- */
 input {
@@ -99,8 +88,6 @@ input:focus { outline: 2px solid var(--accent); outline-offset: -1px; background
 .stat-value { font-size: 2.1rem; font-weight: bold; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .stat-unit { font-size: .95rem; font-weight: normal; color: var(--muted); margin-left: 4px; }
 .stat-sub { font-size: .85rem; color: var(--muted); }
-.stat.reached { border-color: var(--gold); background: linear-gradient(180deg, color-mix(in srgb, var(--gold-light) 30%, var(--card)), var(--card)); }
-.stat.reached .stat-value { color: var(--gold-text); }
 
 .progress { margin-top: 16px; }
 .progress-head, .progress-foot { display: flex; justify-content: space-between; gap: 8px; }

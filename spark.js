@@ -44,8 +44,8 @@
   }
 
   // 大きな数字のタイル1枚分
-  function statTile(label, value, unit, sub, extraClass = '') {
-    return el('div', { class: `stat ${extraClass}` }, [
+  function statTile(label, value, unit, sub) {
+    return el('div', { class: 'stat' }, [
       el('div', { class: 'stat-label', text: label }),
       el('div', { class: 'stat-value' }, [value, el('span', { class: 'stat-unit', text: unit })]),
       el('div', { class: 'stat-sub', text: sub || ' ' }),
@@ -74,7 +74,7 @@
       el('div', { class: 'stats' }, [
         statTile('ガチャ回数', formatNum(now), '連', `うち蒼光の輝き ${formatNum(s.sparks)}`),
         statTile('天井', formatNum(sparkCount), '回分',
-          sparkCount > 0 && progress > 0 ? `＋${formatNum(progress)} 連` : '', sparkCount > 0 ? 'reached' : ''),
+          sparkCount > 0 && progress > 0 ? `＋${formatNum(progress)} 連` : ''),
         statTile('宝晶石換算', formatNum(s.crystals + ticketValue + s.coins), '個',
           `うちチケット ${formatNum(ticketValue)} 個・モバコイン ${formatNum(s.coins)} 枚`),
       ]),
