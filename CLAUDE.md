@@ -19,6 +19,7 @@
 - 素の JavaScript、ビルドなし。`index.html` をファイルとして直接開いても動く
 - 入力はブラウザの localStorage のキー `gbf-spark-v1` に保存する（`{ crystals, singles, tens, coins, sparks }`）
 - 配色は昼（青空）だけ。昼／夜の切り替えは本人の希望でなくした
+- 文字が薄いと見づらいので、文字と背景のコントラスト比は 4.5 以上にする。金色の文字は飾りの `--gold` ではなく濃い `--gold-text` を使う
 - ゲームの規約に反する機能（自動操作、通信の読み取り）は入れない。数は手入力だけ
 - DOM は `spark.js` の中の `el()` で作る（文字列は textContent で入れる）。`innerHTML` は使わない
 
