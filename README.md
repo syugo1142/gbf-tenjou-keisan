@@ -9,7 +9,7 @@
 - ガチャチケットを宝晶石に換算した数も出す
 
 ## 使い方
-https://syugo1142.github.io/tenjou-keisan/ を開くだけで使えます。
+https://syugo1142.github.io/gbf-tenjou-keisan/ を開くだけで使えます。
 
 手元で使う場合は、このリポジトリをダウンロードして（Code → Download ZIP、または `git clone`）、`index.html` をブラウザで開いてください。
 
