@@ -1,16 +1,18 @@
-/* グラブル天井計算のスタイル。青空のテーマ */
+/* グラブル天井計算のスタイル。夜空のテーマ（黒ベース） */
 :root {
-  /* 文字と背景の明るさの差（コントラスト比）が WCAG の目安を満たす濃さにしている */
-  --sky-top: #1f6fbf;
-  --sky-bottom: #3f8fd8;
-  --bg: #eef5fc;
-  --card: #ffffff;
-  --card-shadow: 0 2px 10px rgba(31, 70, 120, .08);
-  --text: #1f2d4a;
-  --muted: #4a5872;
-  --border: #b4c6dc;
-  --field: #f7fafe;
-  --accent: #2b7bd0;
+  /* ブラウザの入力欄やスクロールバーも暗い色で表示させる */
+  color-scheme: dark;
+  /* 文字と背景の明るさの差（コントラスト比）が WCAG の目安を満たす明るさにしている */
+  --sky-top: #16294a;
+  --sky-bottom: #1b3259;
+  --bg: #0f1724;
+  --card: #18233a;
+  --card-shadow: 0 2px 12px rgba(0, 0, 0, .35);
+  --text: #e6ecf5;
+  --muted: #a3b1c6;
+  --border: #3d4f70; /* 入力欄の枠が見えるように、枠線は少し明るくしている */
+  --field: #111b2d;
+  --accent: #7cb2f5;
   --gold: #d1a131;       /* 金色はゲージにだけ使う */
   --gold-light: #f2d27a;
 }
@@ -34,7 +36,7 @@ body {
   padding: 14px 16px;
   color: #fff;
   background: linear-gradient(180deg, var(--sky-top), var(--sky-bottom));
-  box-shadow: 0 2px 12px rgba(20, 60, 110, .25);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .4);
   overflow: hidden;
 }
 .app-header h1 {
