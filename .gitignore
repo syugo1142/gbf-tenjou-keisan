@@ -3,4 +3,5 @@
 *.jpg
 *.jpeg
 *.webp
+!docs/screenshot.png
 CLAUDE.md
