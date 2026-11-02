@@ -18,6 +18,10 @@ https://syugo1142.github.io/gbf-tenjou-keisan/ を開きます。
 
 入力した数はブラウザのlocalStorageに保存し、サーバーには送りません。
 
+## 使用技術
+- HTML、CSS、JavaScript（ライブラリもビルドも使わない）
+- 公開: GitHub Pages（main ブランチをそのまま公開）
+
 ## 関連ツール
 - [グラブル素材管理](https://syugo1142.github.io/gbf-tracker/)（[リポジトリ](https://github.com/syugo1142/gbf-tracker)）: 上限解放などに必要な素材の数を管理する
 
