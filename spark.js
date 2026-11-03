@@ -1,4 +1,4 @@
-// グラブル天井計算（300連）。グラブル素材管理とは独立したページで、このフォルダだけで動く
+// グラブル天井計算（300連）
 (() => {
   const STORAGE_KEY = 'gbf-spark-v1';
   const CEILING = 300;           // 天井に必要な連数
@@ -46,7 +46,7 @@
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
   }
 
-  // 手持ちの数から、画面に出す数をまとめて計算する（画面には触らない）
+  // 手持ちの数から、画面に出す数をまとめて計算する
   function calc(state) {
     // 宝晶石とモバコインは1回のガチャで混ぜて払えないので、端数は別々に切り捨てる
     const totalDraws = Math.floor(state.crystals / CRYSTALS_PER_DRAW) + Math.floor(state.coins / COINS_PER_DRAW)
@@ -74,7 +74,7 @@
     ]);
   }
 
-  // 計算のきまりの説明。定数から作るので、数を変えても説明とずれない
+  // 計算のきまりの説明
   function hintText() {
     const ticket = `単発チケット1枚=宝晶石${formatNum(CRYSTALS_PER_DRAW)}個、`
       + `10連チケット1枚=${formatNum(CRYSTALS_PER_DRAW * DRAWS_PER_TEN)}個。`;
