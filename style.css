@@ -94,6 +94,7 @@ input:focus { outline: 2px solid var(--accent); outline-offset: -1px; background
 .progress-head strong { font-size: 1.1rem; }
 /* あと何個・何円は大事な数字なので、補足の灰色ではなく本文の色にする */
 .progress-foot { font-size: .95rem; color: var(--text); }
+.progress-foot-end { justify-content: flex-end; }
 
 .bar {
   height: 14px;
