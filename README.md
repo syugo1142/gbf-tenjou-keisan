@@ -20,7 +20,7 @@ https://syugo1142.github.io/gbf-tenjou-keisan/ を開きます。
 
 ## 使用技術
 - フロントエンド: HTML、CSS、JavaScript
-- インフラ: GitHub Pages（ビルドせずに、main ブランチをそのままデプロイ）
+- インフラ: GitHub Pages（ホスティング。ビルドせずに、main ブランチをそのままデプロイ）
 
 ## 関連ツール
 - [グラブル素材管理](https://syugo1142.github.io/gbf-tracker/)（[リポジトリ](https://github.com/syugo1142/gbf-tracker)）: 上限解放などに必要な素材の数を管理する
